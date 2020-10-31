@@ -1,2 +1,3 @@
 # peerstronix-store
-api server for peerstronix server
+
+online ecommerce platform built with microservices connected with rpcs and with graphql gateway

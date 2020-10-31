@@ -2,8 +2,6 @@ package gateway
 
 import (
 	"github/Bendomey/peerstronix-store/user"
-
-	"github.com/99designs/gqlgen/graphql"
 )
 
 //Server get the services
@@ -25,8 +23,8 @@ func NewGraphqlServer(userURL string) (*Server, error) {
 }
 
 //ToExecutableSchema to make executable schema
-func (s *Server) ToExecutableSchema() graphql.ExecutableSchema {
-	return NewExecutableSchema(Config{
-		Resolvers: s,
-	})
-}
+// func (s *Server) ToExecutableSchema() graphql.ExecutableSchema {
+// 	// return NewExecutableSchema(Config{
+// 	// 	Resolvers: s,
+// 	// })
+// }

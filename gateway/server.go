@@ -25,11 +25,5 @@ func main() {
 	log.Printf("connect to http://localhost:%s/grapql for GraphQL playground", port)
 	http.Handle("/", handler.GraphQL(srv.ToExecutableSchema()))
 	http.Handle("/graphql", handler.Playground("Peerstronix", "/"))
-	// srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{}}))
-
-	// http.Handle("/", playground.Handler("GraphQL playground", "/query"))
-	// http.Handle("/query", srv)
-
-	// log.Printf("connect to http://localhost:%s/grapql for GraphQL playground", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }

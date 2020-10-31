@@ -1,14 +1,13 @@
-package controllers
+package user
 
 import (
 	"context"
-	"github/Bendomey/peerstronix-store/account"
 
 	"github.com/segmentio/ksuid"
 )
 
-// UserController inteface holds the functions of this controller
-type UserController interface {
+// Service inteface holds the functions of this controller
+type Service interface {
 	CreateUser(ctx context.Context, name string, phone string, email string, password string) (*User, error)
 	UpdateUser(ctx context.Context, name string, phone string, email string, id string) (*User, error)
 	GetUsers(ctx context.Context, skip uint64, take uint64) ([]User, error)
@@ -29,11 +28,11 @@ type User struct {
 
 //UserRepository gets repository
 type userRepository struct {
-	repository account.Repository
+	repository Repository
 }
 
-// NewUserController exposed the repository to the functions in the module
-func NewUserController(r account.Repository) UserController {
+// NewService exposed the repository to the functions in the module
+func NewService(r Repository) Service {
 	return &userRepository{r}
 }
 

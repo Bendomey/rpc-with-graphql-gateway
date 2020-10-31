@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github/Bendomey/peerstronix-store/account/cmd/account"
+	userService "github/Bendomey/peerstronix-store/user/cmd/user"
 )
 
 const (
@@ -14,5 +14,5 @@ const (
 )
 
 func main() {
-	account.StartAccountService(fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname))
+	userService.StartAccountService(fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname))
 }

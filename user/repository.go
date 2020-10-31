@@ -6,7 +6,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
-//Repository services to export from this module
+//Repository services to export from repository module
 type Repository interface {
 	Close() /// to close database
 	Ping()  /// to ping database

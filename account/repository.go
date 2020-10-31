@@ -2,7 +2,6 @@ package account
 
 import (
 	"database/sql"
-	"fmt"
 
 	_ "github.com/lib/pq"
 )
@@ -21,14 +20,12 @@ type postgresqlRepository struct {
 func NewPostgresqlRepository(url string) (Repository, error) {
 	db, err := sql.Open("postgres", url)
 	if err != nil {
-		fmt.Println("Error from here 1")
 		return nil, err
 	}
 
 	//ping db
 	pingErr := db.Ping()
 	if pingErr != nil {
-		fmt.Println("Error from here 2")
 		return nil, pingErr
 	}
 	return &postgresqlRepository{db}, nil

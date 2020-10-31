@@ -26,4 +26,6 @@ func StartAccountService(url string) {
 	//start server here
 	log.Println("Account starts on localhost 5000...")
 
+	//start the grpc server
+
 }

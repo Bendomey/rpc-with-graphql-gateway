@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"github/Bendomey/peerstronix-store/gateway/graph/generated"
 	"github/Bendomey/peerstronix-store/gateway/graph/model"
+	"time"
 
 	"github.com/99designs/gqlgen/graphql"
 )
@@ -25,7 +26,37 @@ func (r *mutationResolver) DeleteUser(ctx context.Context, input model.GetUserFi
 }
 
 func (r *queryResolver) GetUsers(ctx context.Context, pagination *model.PaginationInput) ([]*model.User, error) {
-	panic(fmt.Errorf("not implemented"))
+	ctx, cancel := context.WithTimeout(ctx, 3*time.Second)
+	defer cancel()
+
+	//get users
+	var skip, take uint64
+	// skip, take = pagination.Skip, pagination.Take
+	// if skip == nil {
+	// 	skip = int(0)
+	// }
+	// if take == nil {
+	// 	take = int(0)
+	// }
+
+	userLists, err := r.userClient.GetUsers(ctx, skip, take)
+	if err != nil {
+		return nil, err
+	}
+
+	var users []*model.User
+	//loop and append
+	for _, u := range userLists {
+		users = append(users, &model.User{
+			ID:    u.ID,
+			Name:  u.Name,
+			Phone: u.Phone,
+			Email: u.Email,
+		})
+	}
+	return users, nil
+
+	// r.userClient.GetUsers()
 }
 
 func (r *queryResolver) GetUser(ctx context.Context, filter model.GetUserFilter) (*model.User, error) {

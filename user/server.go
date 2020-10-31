@@ -69,7 +69,14 @@ func (s *grpcServer) GetUsers(ctx context.Context, r *pb.GetUsersRequest) (*pb.G
 	if err != nil {
 		return nil, err
 	}
-	users := []*pb.User{}
+	users := []*pb.User{
+		{
+			Id:    "1",
+			Email: "domeybenjamin1@gmail.com",
+			Name:  "Domey Benjamin",
+			Phone: "233545526664",
+		},
+	}
 	for _, p := range res {
 		users = append(users, &pb.User{
 			Id:        p.ID,

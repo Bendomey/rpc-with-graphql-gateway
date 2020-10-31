@@ -17,7 +17,7 @@ func main() {
 		port = defaultPort
 	}
 
-	srv, err := graph.NewGraphqlServer("http://localhost:5000")
+	srv, err := graph.NewGraphqlServer("localhost:5000")
 	if err != nil {
 		log.Fatalf("An error occured %s", err)
 	}

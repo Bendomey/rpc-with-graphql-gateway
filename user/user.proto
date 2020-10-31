@@ -1,7 +1,7 @@
 syntax = "proto3";
-package user_proto;
+package pb;
 
-// protoc ./protos/user.proto --go_out=plugins=grpc:./pb
+// protoc ./user.proto --go_out=plugins=grpc:./pb
 message User {
     string id = 1;
     string name = 2;
@@ -58,7 +58,7 @@ message DeleteUserResponse {
     bool done = 1;
 }
 
-service AccountService {
+service UserService {
     rpc CreateUser (CreateUserRequest) returns (CreateUserResponse){}
     rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse){}
     rpc GetUsers (GetUsersRequest) returns (GetUsersResponse){}

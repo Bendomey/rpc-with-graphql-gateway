@@ -24,8 +24,9 @@ func StartUserService(url string) {
 
 	defer r.Close()
 	//start server here
-	log.Println("User starts on localhost 5000...")
-
+	log.Println("User starts on localhost :5000...")
+	s := user.NewService(r)
+	log.Fatal(user.ListenToGrpc(s, 5000))
 	//start the grpc server
 
 }

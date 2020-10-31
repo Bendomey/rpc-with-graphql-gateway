@@ -14,5 +14,5 @@ const (
 )
 
 func main() {
-	userService.StartAccountService(fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname))
+	userService.StartUserService(fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname))
 }

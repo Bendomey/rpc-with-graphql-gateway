@@ -9,6 +9,8 @@ import (
 //Repository services to export from this module
 type Repository interface {
 	Close() /// to close database
+	Ping()  /// to ping database
+
 }
 
 //type to hold postgresql db

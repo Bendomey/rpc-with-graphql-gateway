@@ -6,13 +6,13 @@ import (
 )
 
 const (
-	host     = ""
+	host     = "localhost"
 	port     = 5432
-	user     = "postgres"
-	password = ""
+	user     = "domey"
+	password = "akankobateng1"
 	dbname   = "peerstronix"
 )
 
 func main() {
-	account.StartAccountService(fmt.Sprintf("host:%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, password, dbname, dbname))
+	account.StartAccountService(fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname))
 }
